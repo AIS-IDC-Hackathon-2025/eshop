@@ -1,4 +1,4 @@
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -133,18 +133,7 @@ public static class CatalogApi
 
         var root = (IQueryable<CatalogItem>)services.Context.CatalogItems;
 
-        if (name is not null)
-        {
-            root = root.Where(c => c.Name.StartsWith(name));
-        }
-        if (type is not null)
-        {
-            root = root.Where(c => c.CatalogTypeId == type);
-        }
-        if (brand is not null)
-        {
-            root = root.Where(c => c.CatalogBrandId == brand);
-        }
+     
 
         var totalItems = await root
             .LongCountAsync();
