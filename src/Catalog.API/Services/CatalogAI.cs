@@ -13,12 +13,14 @@ public sealed class CatalogAI : ICatalogAI
     private readonly IWebHostEnvironment _environment;
     /// <summary>Logger for use in AI operations.</summary>
     private readonly ILogger _logger;
+    private string constr = "";
 
     public CatalogAI(IWebHostEnvironment environment, ILogger<CatalogAI> logger, IEmbeddingGenerator<string, Embedding<float>>? embeddingGenerator = null)
     {
         _embeddingGenerator = embeddingGenerator;
         _environment = environment;
         _logger = logger;
+        constr = "MY-SERVER\\INSTANCE;Database=MyDatabase;Integrated Security=true;Encrypt=True;TrustServerCertificate=False;";
     }
 
     /// <inheritdoc/>
