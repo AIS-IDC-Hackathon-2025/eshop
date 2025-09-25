@@ -14,13 +14,15 @@ public sealed class CatalogAI : ICatalogAI
     /// <summary>Logger for use in AI operations.</summary>
     private readonly ILogger _logger;
     private string constr = "";
+    private string _apikey = "";
 
     public CatalogAI(IWebHostEnvironment environment, ILogger<CatalogAI> logger, IEmbeddingGenerator<string, Embedding<float>>? embeddingGenerator = null)
     {
         _embeddingGenerator = embeddingGenerator;
         _environment = environment;
         _logger = logger;
-        constr = "MY-SERVER\\INSTANCE;Database=MyDatabase;Integrated Security=true;Encrypt=True;TrustServerCertificate=False;";
+        constr = "MY-SERVER\\INSTANCE;Database=MyDatabase;Integrated Security=true;Encrypt=True;TrustServerCertificate=False;password=MyPassword;User Id=MyUserId;";
+        _apikey = "sk-1234-09876dhdh";
     }
 
     /// <inheritdoc/>
